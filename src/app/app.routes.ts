@@ -10,4 +10,8 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'cep-consulta',
+    loadComponent: () => import('./cep-consulta/cep-consulta.page').then( m => m.CepConsultaPage)
+  },
 ];

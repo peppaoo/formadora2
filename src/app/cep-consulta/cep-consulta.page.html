@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Consulta de CEP</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Digite o CEP</ion-label>
+    <ion-input type="text" [(ngModel)]="cep" (ionInput)="resetResponse()"></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="consultarCep()">Consultar</ion-button>
+
+  <div *ngIf="dados">
+    <h2>Dados do CEP</h2>
+    <p><strong>Logradouro:</strong> {{ dados.logradouro }}</p>
+    <p><strong>Bairro:</strong> {{ dados.bairro }}</p>
+    <p><strong>Cidade:</strong> {{ dados.localidade }}</p>
+    <p><strong>Estado:</strong> {{ dados.uf }}</p>
+  </div>
+
+  <div *ngIf="errorMessage" style="color: red;">
+    {{ errorMessage }}
+  </div>
+ <ion-button
+  expand="block"
+  (click)="voltarHome()">
+  Voltar para o início
+</ion-button>
+
+</ion-content>
+
